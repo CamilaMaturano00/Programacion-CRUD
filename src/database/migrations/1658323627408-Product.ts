@@ -1,43 +1,30 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateClient1624747881677 implements MigrationInterface {
+export class Product1658323627408 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "clients",
+                name: "products",
                 columns: [
                     {
-                        name: "idClient",
+                        name: "id",
                         type: "uuid",
                         isPrimary: true
                     },
                     {
-                        name: "clientname",
+                        name: "productname",
                         type: "varchar"
                     },
                     {
-                        name: "dni",
+                        name:"price",
+                        type: "double"
+                    },
+                    
+                    {
+                        name: "categoriaId",
                         type: "varchar"
                     },
-                    {
-                        name: "email",
-                        type: "varchar"
-                    },
-                    {
-                        name: "Phone",
-                        type: "varchar"
-                    },
-                    {
-                        name: "City",
-                        type: "varchar"
-                    },
-                    {
-                        name: "state",
-                        type: "varchar",
-                        length: "2"
-                    },
-
                     {
                         name: "created_at",
                         type: "timestamp",
@@ -48,13 +35,14 @@ export class CreateClient1624747881677 implements MigrationInterface {
                         type: "timestamp",
                         default: "now()"
                     }
+
                 ]
             })
         );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("clients");
+        await queryRunner.dropTable("products");
     }
 
 }

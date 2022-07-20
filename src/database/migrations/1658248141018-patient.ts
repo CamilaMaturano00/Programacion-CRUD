@@ -1,40 +1,37 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateUsers1624747881677 implements MigrationInterface {
+export class patient1658248141018 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "users",
-                columns: [
+                name: "patient",
+                columns:[
                     {
-                        name: "id",
+                        name: "idPatient",
                         type: "uuid",
                         isPrimary: true
-                    },
+                    },                    
                     {
-                        name: "username",
+                        name: "patientname",
                         type: "varchar"
                     },
                     {
-                        name: "email",
+                        name: "datebirth",
                         type: "varchar"
                     },
                     {
-                        name: "Phone",
+                        name: "weigth",
                         type: "varchar"
                     },
                     {
-                        name: "City",
+                        name: "heigth",
                         type: "varchar"
                     },
                     {
-                        name: "state",
+                        name: "specie",
                         type: "varchar",
-                        length: "2"
                     },
-                    
-
                     {
                         name: "created_at",
                         type: "timestamp",
@@ -47,11 +44,12 @@ export class CreateUsers1624747881677 implements MigrationInterface {
                     }
                 ]
             })
-        );
+        )     
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("users");
+        await queryRunner.dropTable("patient");
+    
     }
 
 }

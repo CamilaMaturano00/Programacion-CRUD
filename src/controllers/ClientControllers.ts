@@ -16,12 +16,12 @@ class ClientControllers{
           city,
           state
         }).then(() => {
-          response.render("Empleados/message", {
+          response.render("Product/message", {
             message: "Usuario registrado exitosamente"
           });
         });
       } catch (err) {
-        response.render("Empleados/message", {
+        response.render("Product/message", {
           message: `Error al registrar usuario: ${err.message}`
         });
       }
@@ -50,7 +50,7 @@ class ClientControllers{
     const getClientDataService = new ClientService();            
     const client = await getClientDataService.getData(idClient);
 
-    return response.render("Empleados/edit", {
+    return response.render("Cliente/edit", {
       client: client
     }); 
   } 
@@ -58,7 +58,7 @@ class ClientControllers{
     const listClientsService = new ClientService();
     const client = await listClientsService.list();
 
-    return response.render("Empleados/Usuarios", {
+    return response.render("Cliente/cliente", {
       client: client
     });
   }

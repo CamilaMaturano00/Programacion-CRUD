@@ -6,7 +6,7 @@ import {ProductService} from "../services/ProductService";
 class ProductControllers{
 
   
-  async handleAddProduct(reqeust: Request, response: Response) {
+  async handleAddProduct(request: Request, response: Response) {
     const service = new CategoryService();
     const categories = await service.list();
     response.render("Product/addProduct", {categories})

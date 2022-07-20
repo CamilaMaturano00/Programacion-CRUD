@@ -1,62 +1,49 @@
 <%- include("../template/navBar") %>
 
 <body>
-  <br>
-  <div class="container">
-    <div class="text-center">
+  <div class="form-register">
       <h2>Ingresar Paciente</h2>
-    </div>
-    <br>
-    <form action="./addPaciente" method="POST">
-      <div class="row">
-        <div class="col-6">
+      <hr>
+      <br>
+    <form action="./addPaciente" method="POST" class="container-form">
+      <div class="container-input">
+        <div class="input">
           <label for="patientname" class="form-label">Nombre de paciente</label>
-          <input type="text" name="patientname" id="patientname" class="form-control">
+          <input class="controls" type="text" name="patientname" id="patientname" class="form-control">
         </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-6">
+        <div class="input">
           <label for="datebirth" class="form-label">Fecha Nacimiento</label>
-          <input type="text" name="datebirth" id="datebirth" class="form-control">
+          <input class="controls" style="color: black;" type="date" name="datebirth" id="datebirth" class="form-control">
         </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-6">
+      </div>
+      <div class="container-input">
+        <div class="input">
           <label for="weigth" class="form-label">Peso</label>
-          <input type="text" name="weigth" id="weigth" class="form-control">
+          <input class="controls" type="text" name="weigth" id="weigth" class="form-control">
         </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
+        <div class="input">
           <label for="heigth" class="form-label">Altura</label>
-          <input type="text" name="heigth" id="heigth" class="form-control">
+          <input class="controls" type="text" name="heigth" id="heigth" class="form-control">
         </div>
       </div>
-      <div class="col-6">
-        <label for="specie" class="form-label">Especie</label>
-        <input type="text" name="specie" id="specie" class="form-control">
-
-        <!-- <select name="specie" id="specie" class="form-select">
-            <option value="" selected disabled>Seleccione categoria</option>
-            <option value="gato" >Gato</option>
-            <option value="perro" >Perro</option>
-            <option value="pez" >Pez</option>
-        </select> -->
-        <br>
-      </div> 
-      <div class="row">
-        <div class="col-6">
-          <div class="float-start">
-            <button type="submit" class="btn btn-success">Agregar producto</button>
+      <div class="container-input">
+        <div class="input">
+          <label for="specie" class="form-label">Especie</label>
+          <select class="controls"  name="specie" id="specie" class="form-select">
+              <option value="" selected>Seleccione categoria</option>
+              <option value="gato" >Gato</option>
+              <option value="perro" >Perro</option>
+              <option value="pez" >Pez</option>
+          </select>
+        </div>         
+      </div>
+      <div class="container-btn">
+          <div class="">
+            <button type="submit" class="boton">Agregar Paciente</button>
           </div>
-        </div>
-        <div class="col-6">
-          <div class="float-end">
-            <a href="./listPaciente" class="btn btn-success">Volver</a>
+          <div class="">
+            <a href="./listPaciente" class="boton">Volver</a>
           </div>
-        </div>
       </div>
     </form>
   </div>

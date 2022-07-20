@@ -4,6 +4,7 @@ import ProductControllers from "./controllers/ProductControllers";
 import CategoryControllers from "./controllers/CategoryControllers";
 import { LoginControllers } from "./controllers/LoginControllers";
 import { PatientControllers } from "./controllers/PatientControllers";
+import { ClientControllers } from "./controllers/ClientControllers";
 
 
 //----------------------------Empleados--------------------------------------------
@@ -55,6 +56,13 @@ router.get("/listPaciente",patient.handleListPatient);
 router.get("/addPaciente", (request, response) => {
   response.render("Paciente/addPaciente");});
 router.post("/addPaciente", patient.handleCreatePatient);
+//---------------------------------Cliente-------------------------------------
+const cliente = new ClientControllers();
+
+router.get("/cliente",cliente.handleListClient);
+router.get("/addCliente", (request, response) => {
+  response.render("Cliente/addCliente");});
+router.post("/addCliente", cliente.handleCreateClient);
 //---------------------------------Sesion----------------------------------------
 
 const login = new LoginControllers();

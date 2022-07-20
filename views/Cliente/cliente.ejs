@@ -21,19 +21,19 @@
           <% patient.forEach(function(patient) { %>
             <tr>
               <td>
-                <%= patient.patientname%>
+                <%= patient.patietname %>
               </td>
               <td>
-                <%= patient.datebirth%>
+                <%= patient.datebirth %>
               </td>   
               <td>
-                <%= patient.weigth%>
+                <%= patient.weight%>
               </td>
               <td>
-                <%= patient.heigth%>
+                <%= patient.height%>
               </td>
               <td>
-                <%= patient.specie%>
+                <%= patient.species%>
               </td>
               <td>
                 <%= patient.created_at.toLocaleDateString() %>
@@ -47,14 +47,14 @@
                 <div class="row">
                   <div class="row">
                     <form action="./editProduct" method="GET">
-                      <input type="hidden" name="idPatient" value="<%= patient.idPatient %>">
+                      <input type="hidden" name="id" value="<%= product.id %>">
                       <button type="submit" class="btn edit-btn"><i class="bi bi-pencil"></i></button>
                     </form>
                   </div>
                   <div class="row"></div>
                   <div class="row">
                     <form action="./delete-product" method="POST">
-                      <input type="hidden" name="idPatient" value="<%= patient.idPatient %>">
+                      <input type="hidden" name="id" value="<%= product.id %>">
                       <button type="submit" class="btn delete-btn"><i class="bi bi-trash"></i></button>
                     </form>
                   </div>

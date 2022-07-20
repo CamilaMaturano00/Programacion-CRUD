@@ -12,7 +12,7 @@ interface IPantient {
   }
 class PatientService {
       async create({ patientname, datebirth,weigth, heigth, specie }: IPantient) {
-        if (!patientname || !datebirth || weigth || !heigth || !specie) {
+        if (!patientname || !datebirth || !weigth || !heigth || !specie) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -27,8 +27,6 @@ class PatientService {
         const nuevopaciente = await patientRepository.save(patient);
         console.log(nuevopaciente);
         return patient;
-        
-
       }
       async delete(idPatient: string) {
         const patientRepository = getCustomRepository(PatientsRepository);

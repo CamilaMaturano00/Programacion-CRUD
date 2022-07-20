@@ -4,26 +4,27 @@ import {PatientService} from "../services/PatientService";
 class PatientControllers{
 
   async handleCreatePatient(request: Request, response: Response) {
-      const { patientname, datebirth,weigth, heigth, specie } = request.body;
+      const {idPatient, patientname, datebirth, weigth, heigth, specie } = request.body;
       const createPatientService = new PatientService();
   
       try {
         await createPatientService.create({
+          idPatient,
           patientname,
-            datebirth,
-            weigth,
-            heigth,
-            specie,
+          datebirth,
+          weigth,
+          heigth,
+          specie,
         }).then(() => {
           response.render("Paciente/message", {
-            message: "Usuario registrado exitosamente"
+            message: "Paciente registrado exitosamente"
           });
         });
       } catch (err) {
         response.render("Paciente/message", {
-          message: `Error al registrar usuario: ${err.message}`
+          message: `Error al registrar paciente: ${err.message}`
         })
-        console.log(request);
+        console.log(request.body);
       }
 
   }
@@ -34,12 +35,12 @@ class PatientControllers{
 
     try {
         await deletePatientService.delete(idPatient).then(() => {
-        response.render("Empleados/message", {
+        response.render("Paciente/message", {
           message: "Usuario eliminado correctamente"
         });
       });
     } catch (err) {
-      response.render("Empleados/message", {
+      response.render("Paciente/message", {
         message: `Error al eliminar usuario: ${err.message}`
       });
     }
@@ -51,7 +52,7 @@ class PatientControllers{
     const getPatientDataService = new PatientService();            
     const patient = await getPatientDataService.getData(idPatient);
 
-    return response.render("Empleados/edit", {
+    return response.render("Paciente/edit", {
       patient: patient
     }); 
   } 
@@ -75,7 +76,7 @@ class PatientControllers{
         search: search
       });
     } catch (err) {
-      response.render("Empleados/message", {
+      response.render("Paciente/message", {
         message: `Error al buscar usuario: ${err.message}`
       });
     }
@@ -86,12 +87,12 @@ class PatientControllers{
 
     try {
       await updatePatientService.update({ idPatient, patientname, datebirth ,weigth, heigth, specie }).then(() => {
-        response.render("Empleados/message", {
+        response.render("Paciente/message", {
           message: "Usuario actualizado correctamente"
         });
       });
     } catch (err) {
-      response.render("Empleados/message", {
+      response.render("Paciente/message", {
         message: `Error al actualizar usuario: ${err.message}`
       });
     }
